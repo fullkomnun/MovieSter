@@ -1,0 +1,8 @@
+<resources>
+  <string name="app_name">MovieSter</string>
+  <string name="action_filter_movies_text">Filter movies by date range</string>
+  <string name="movie_details_genres_label">GENRES</string>
+  <string name="movie_details_overview_label">OVERVIEW</string>
+  <string name="fetch_movies_error_msg">error while fetching movies</string>
+  <string name="fetch_movie_details_error_msg">error while fetching movie details</string>
+</resources>
