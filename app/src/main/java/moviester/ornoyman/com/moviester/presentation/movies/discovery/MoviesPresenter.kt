@@ -19,9 +19,9 @@ class MoviesPresenter(private val moviesProvider: MoviesProvider,
 
     override fun bindIntents() {
         val loadNextPageIntent = intent { it.loadNextPageIntent() }
-                .throttleFirst(1, TimeUnit.SECONDS, AndroidSchedulers.mainThread())
-                .filter(this::shouldFetchNextPage)
                 .distinctUntilChanged()
+                .filter(this::shouldFetchNextPage)
+                .throttleFirst(1, TimeUnit.SECONDS, AndroidSchedulers.mainThread())
                 .map { Unit }
 
         val fetchMoviesMutation =
