@@ -93,6 +93,7 @@ class MoviesController : BaseController<MoviesView, MoviesPresenter>(), MoviesVi
     override fun loadNextPageIntent(): Observable<LoadNextPageIntent> =
             view?.movies_list?.let { recyclerView ->
                 recyclerView.scrollEvents()
+                        .filter { it.dx() != 0 || it.dy() != 0 }
                         .map {
                             LoadNextPageIntent(lastVisibleItem = recyclerView.layoutManager.findLastVisibleItemPosition(),
                                     itemsTotal = recyclerView.layoutManager.itemCount)
